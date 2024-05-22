@@ -1,8 +1,5 @@
-import React from 'react'
 
-type ButtonProps = {
 
-}
 
 const Button = () => {
   return (
