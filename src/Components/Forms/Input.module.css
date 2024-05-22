@@ -1,0 +1,52 @@
+.inputBox {
+    position: relative;
+    width: 300px;
+}
+
+.inputBox input {
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    border-radius: 5px;
+    color: #3C2B36;
+    border: 1px solid #332D31;
+    font-size: 1em;
+}
+
+.inputBox input {
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    border-radius: 5px;
+    color: #3C2B36;
+    border: 1px solid #332D31;
+    font-size: 1em;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    text-transform: uppercase;
+    color: #332D31;
+    letter-spacing: 0.1em;
+}
+
+.inputBox input[type= "password"]:focus ~ span,
+.inputBox input[type= "password"]:valid ~ span,
+.inputBox input[type= "text"]:focus ~ span,
+.inputBox input[type= "text"]:valid ~ span {
+ color: #fff;
+ font-size: 0.75em;
+ transform: translateX(10px) translateY(-7px);
+ padding: 0 5px;
+ background: #663857;
+ border-radius: 2px;
+} 

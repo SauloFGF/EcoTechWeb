@@ -12,8 +12,6 @@ const FormUi = () => {
     }
     return (
       <form>
-        {children}
-        <Button/>
       </form>
     )
   }

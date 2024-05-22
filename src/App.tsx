@@ -1,13 +1,11 @@
-import FormUi from './Components/Forms/Form'
+import PageTest from './Testes/PageTest'
 import './Style.css'
 
 
 function App() {
   return (
     <>
-    <FormUi>
-      <input/>
-    </FormUi>
+    <PageTest/>
     </>
   )
 }

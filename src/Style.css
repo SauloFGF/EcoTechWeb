@@ -1,2 +1,5 @@
-/* background-color: #bcecf0;
-background-image: linear-gradient(157deg, #bcecf0 0%, #1279a0 20%, #e2935a 80%, #ecd7a6 100%); */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
