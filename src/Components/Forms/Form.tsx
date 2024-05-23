@@ -6,7 +6,7 @@ import Button from "./Button"
 const FormUi = () => {
     const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const corpo = event.target.value;
-        
+
 
         console.log(corpo, 'evento')
     }
@@ -15,5 +15,5 @@ const FormUi = () => {
       </form>
     )
   }
-  
+
   export default FormUi

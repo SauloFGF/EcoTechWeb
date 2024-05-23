@@ -10,7 +10,7 @@
     width: 100%;
     background: transparent;
     border-radius: 5px;
-    color: #3C2B36;
+    color: #D676B8;
     border: 1px solid #332D31;
     font-size: 1em;
 }
@@ -22,7 +22,7 @@
     width: 100%;
     background: transparent;
     border-radius: 5px;
-    color: #3C2B36;
+    color: #D676B8;
     border: 1px solid #332D31;
     font-size: 1em;
 }
@@ -35,7 +35,7 @@
     font-size: 1em;
     transition: 0.5s;
     text-transform: uppercase;
-    color: #332D31;
+    color: #D676B8;
     letter-spacing: 0.1em;
 }
 
@@ -45,21 +45,19 @@
     padding: 0 5px;
     font-size: 0.75em;
     text-transform: uppercase;
-    color: #fff;
+    color: #D676B8;
     letter-spacing: 0.1em;
     transform: translateX(10px) translateY(-7px);
-    background: #663857;
+    background: #332D31;
     border-radius: 2px;
 }
 
-.inputBox input[type= "password"]:focus ~ span,
-.inputBox input[type= "password"]:valid ~ span,
-.inputBox input[type= "text"]:focus ~ span,
-.inputBox input[type= "text"]:valid ~ span {
- color: #fff;
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span {
+ color: #D676B8;
  font-size: 0.75em;
  transform: translateX(10px) translateY(-7px);
  padding: 0 5px;
- background: #663857;
+ background: #332D31;
  border-radius: 2px;
-} 
+}

@@ -1,9 +1,8 @@
+import styles from './Button.module.css'
 
-
-
-const Button = () => {
+const Button = ({ children, ...props  } :React.ComponentProps<'button'> ) => {
   return (
-    <button>Button</button>
+    <button {...props} className={styles.button}>{children}</button>
   )
 }
 
