@@ -2,9 +2,9 @@ import Input from '../Components/Forms/Input'
 
 const PageTest = () => {
     return (
-        <div style={{display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh"}}>
-        <Input label='E-mail' type='date' required />
-        <Input label='Senha' type='password' required />
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", flexDirection: "column", gap: "16px"}}>
+        <Input label='Data' type='date' required />
+        <Input span='Nome' type='text' required />
         </div>
     )
 }

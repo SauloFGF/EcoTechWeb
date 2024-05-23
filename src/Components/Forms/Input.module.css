@@ -39,6 +39,19 @@
     letter-spacing: 0.1em;
 }
 
+.inputBox label {
+    position: absolute;
+    left: 0;
+    padding: 0 5px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.1em;
+    transform: translateX(10px) translateY(-7px);
+    background: #663857;
+    border-radius: 2px;
+}
+
 .inputBox input[type= "password"]:focus ~ span,
 .inputBox input[type= "password"]:valid ~ span,
 .inputBox input[type= "text"]:focus ~ span,

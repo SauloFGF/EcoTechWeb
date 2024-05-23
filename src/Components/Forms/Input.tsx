@@ -1,14 +1,14 @@
 import styles from './Input.module.css'
 type IInputTypes = React.ComponentProps<'input'> & {
-    label: string;
+    label?: string;
+    span?: string;
 }
 
-const Input = ({label, ...props}: IInputTypes) => {
+const Input = ({label, span, ...props}: IInputTypes) => {
     return <div className={styles.inputBox}>
+        { label && <label>{label}</label> }
         <input {...props}/>
-        {props.type == 'text' || props.type == 'password' &&
-        <span>{label}</span>
-        }
+        { span && <span>{span}</span> }
     </div>
 }
 
