@@ -1,0 +1,42 @@
+.box {
+  max-width: 90%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.charts {
+  display: flex;
+  place-content: center;
+  flex-flow: wrap;
+  gap: 2rem;
+}
+
+.pie {
+  flex: 1 0 225px;
+  max-width: 325px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image: conic-gradient(
+    from 30deg,
+    var(--c1) 40%,
+    var(--c2) 0 65%,
+    var(--c3) 0 85%,
+    var(--c4) 0
+  );
+}
+
+.donut {
+  flex: 1 0 225px;
+  max-width: 325px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image: radial-gradient(
+    var(--backgrund) 40%,
+    transparent 0 70%, var(--backgrund) 0),
+    conic-gradient(
+      from 360deg,
+      var(--c1) 35%,
+      var(--c2) 35% 98%,
+      var(--c3) 98% 100%
+    );
+  }

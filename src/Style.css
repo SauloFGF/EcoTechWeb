@@ -1,5 +1,22 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;  
+html {
+  --backgrund: #000000;
+  --text: #A2A2A2;
+  --color-1: #C3C3C3;
+  --color-2: #808080;
+  --color-3: #5E5E5E;
+  --color-4: #3C3C3C;
+  --gap-s: 0.625rem;
+  --gap: 1.25rem;
+
+  --c1: #6b6bd6;
+  --c2: #e74f4f;
+  --c3: #fc921f;
+  --c4: #149ece;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0px;
+  color: var(--color-2);
+  background: var(--backgrund);
 }
