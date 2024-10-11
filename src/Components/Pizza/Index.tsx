@@ -1,18 +1,25 @@
-import styles from './index.module.css'
+import {Pie, Box, Charts} from "./stylede";
 
-
-type IPieCharts =  {
+export type IPieCharts = {
   title: string;
+  values: number[];
+  colors: string[];
+};
+
+const StunningPie = ({ title, values, colors }: IPieCharts) => {
+  const total = values.reduce((acc, value) => acc + value, 0);
+  const segments = values.map((value, index) => ({
+    color: colors[index],
+    percentage: (value / total) * 100,
+  }));
+
+  return (
+    <Box>
+      <Charts>
+        <Pie segments={segments} />
+      </Charts>
+    </Box>
+  )
 }
 
-const StunnigPie = ({ title}: IPieCharts) => {
-  return (<div className={styles.box}>
-    <h1 className="title-pie">{`Valor total ${title}`}</h1>
-    <figure className={styles.charts}>
-      <div className={styles.pie}></div>
-      <div className={styles.donut}></div>
-    </figure>
-  </div>)
-}
-
-export default StunnigPie
+export default StunningPie;

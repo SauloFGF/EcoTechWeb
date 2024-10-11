@@ -1,12 +1,11 @@
-import StunnigPie from '../Components/Pizza/Index';
 import FormUi from '../Components/Forms';
 import Input from '../Components/Forms/Input';
 import Button from '../Components/Forms/Button';
+import StunningPie from '../Components/Pizza/Index';
 
 const PageTest = () => {
-    return (
-      <div>
-      <StunnigPie title='teste'/>
+    return (<div>
+      <StunningPie title='teste' values={[356, 80, 100, 176]} colors={["red", "blue", "green", "yellow"]}/>
       <h2>Form sem state</h2>
       <FormUi>
         <div style={{display: "flex", flexDirection: "column", gap:"16px"}}>
@@ -19,8 +18,7 @@ const PageTest = () => {
         </div>
         </div>
       </FormUi>
-      </div>
-    )
+      </div>)
 }
 
 export default PageTest;
