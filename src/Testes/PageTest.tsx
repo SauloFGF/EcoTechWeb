@@ -5,7 +5,7 @@ import StunningPie from '../Components/Pizza/Index';
 
 const PageTest = () => {
     return (<div>
-      <StunningPie title='teste' values={[356, 80, 100, 176]} colors={["red", "blue", "green", "yellow"]}/>
+      <StunningPie title={['ARROZ', 'FEIJÃO', 'MACARRÃO', "CARNE"]} values={[356, 80, 100, 176]} colors={["#3E3E34", "#BEBA80", "#E8E276", "#696753"]}/>
       <h2>Form sem state</h2>
       <FormUi>
         <div style={{display: "flex", flexDirection: "column", gap:"16px"}}>

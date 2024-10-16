@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 type Segment = {
   color: string;
-  percentage: number
+  percentage: number;
+  value: number;
 }
 
 export const Pie = styled.div<{segments: Segment[]}>`
@@ -11,12 +12,44 @@ export const Pie = styled.div<{segments: Segment[]}>`
   aspect-ratio: 1;
   border-radius: 50%;
   background-image: ${({ segments }) => {
-    const gradient = segments.map(({ color, percentage }, index) => {
-      const start = index === 0 ? 0 : segments.slice(0, index).reduce((acc, seg) => acc + seg.percentage, 0);
+    const gradient = segments
+      .map(({ color, percentage }, index) => {
+        const start =
+          index === 0
+          ? 0
+          : segments.slice(0, index).reduce((acc, seg) => acc + seg.percentage, 0);
       return `${color} ${start}%, ${color} ${start + percentage}%`;
-    }).join(', ');
+    })
+    .join(', ');
     return `conic-gradient(${gradient})`;
   }};
+  position: relative;
+  image-redering: optimizeQuality;
+  filter: blur(0.5px)
+
+  &::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+  }
+
+  & > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  }
+
+  &:hover {
+  filter: brightness(1.1);
+  }
+`;
+
+export const Esquare = styled.div<{color: string}>`
+  width: 15px;
+  aspect-ratio: 1;
+  background-color: ${({color}) => color};
 `;
 
 export const Box = styled.div`
@@ -30,4 +63,14 @@ export const Charts = styled.figure`
   place-content: center;
   flex-flow: wrap;
   gap: 2rem;
+`;
+
+export const Tooltip = styled.div`
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
 `;
