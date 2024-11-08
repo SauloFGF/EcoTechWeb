@@ -8,7 +8,7 @@ type Segment = {
 
 export const Pie = styled.div<{segments: Segment[]}>`
   flex: 1 0 225px;
-  max-width: 325px;
+  max-width: 300px;
   aspect-ratio: 1;
   border-radius: 50%;
   background-image: ${({ segments }) => {
@@ -63,14 +63,4 @@ export const Charts = styled.figure`
   place-content: center;
   flex-flow: wrap;
   gap: 2rem;
-`;
-
-export const Tooltip = styled.div`
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  pointer-events: none;
-  transform: translate(-50%, -100%);
 `;
