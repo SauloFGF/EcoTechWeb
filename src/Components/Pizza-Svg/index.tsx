@@ -1,29 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Esquare } from '../Pizza/stylede';
 
-interface Coords {
-  x: number;
-  y: number;
+type IDados = {
+  titulo: string;
+  valor: number;
+};
+
+interface SvgTestProps {
+  dados: IDados[];
 }
 
-interface Sector {
-  percentage: number;
-  color: string;
-}
-
-const SvgTest = () => {
-  const [ coords, setCoods] = React.useState({ x: 0, y: 0})
-
-  const handelMouseMove = (event: React.MouseEvent<SVGSVGElement, MouseEvent>): void => {
-    const svg = event.currentTarget;
-    const rect = svg.getBoundingClientRect()
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-
-    setCoods({x , y})
-
-    console.log(`mouse coordinates: x=${x}, y=${y}`)
-  }
+const SvgTest: React.FC<SvgTestProps> = ({ dados }) => {
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; value: number } | null>(null);
 
   const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
     const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
@@ -44,40 +33,90 @@ const SvgTest = () => {
       "L", x, y,
       "Z"
     ].join(" ");
-  }
+  };
 
-  const sectors = [
-    { percentage: 10, color: "#FFFF"},
-    { percentage: 15, color: "#FD4037"},
-    { percentage: 10, color: "#94C650"},
-    { percentage: 25, color: "#FFFF"},
-    { percentage: 20, color: "#FCCE54"},
-    { percentage: 20, color: "#39BDFD"}
-  ]
+  const total = dados.reduce((sum, item) => sum + item.valor, 0);
+
+  const colors = ["#FD4037", "#94C650", "#FCCE54", "#39BDFD", "#FF5733", "#C70039"];
+  const sectors = dados.map((item, index) => {
+    const percentage = (item.valor / total) * 100;
+    return {
+      percentage,
+      color: colors[index % colors.length],
+      value: item.valor
+    };
+  });
 
   let cumulativePercentage = 0;
 
   return (
-    <svg
-      style={{border: "1px solid red"}}
-      viewBox="0 0 100 100"
-      width="512"
-      height="512"
-      onMouseMove={handelMouseMove}
+    <div style={{ display: 'flex' }}>
+      <svg
+        viewBox="0 0 100 100"
+        width="512"
+        height="512"
+        onMouseLeave={() => setTooltip(null)}
       >
         {sectors.map((sector, index) => {
-          const [stratAngle, endAnglec] = [
-            cumulativePercentage * 360 /100,
+          const [startAngle, endAngle] = [
+            cumulativePercentage * 360 / 100,
             (cumulativePercentage + sector.percentage) * 360 / 100
           ];
           cumulativePercentage += sector.percentage;
+
+          const midAngle = (startAngle + endAngle) / 2;
+          const textCoords = polarToCartesian(50, 50, 30, midAngle);
+
           return (
-            <path key={index}
-            d={describeArc(50, 50, 50, stratAngle, endAnglec)}
-            fill={sector.color} />
-          )
+            <g key={index}>
+              <path
+                d={describeArc(50, 50, 50, startAngle, endAngle)}
+                fill={sector.color}
+                onMouseEnter={() => setHighlightedIndex(index)}
+                onMouseMove={(event) => {
+                  const svg = event.currentTarget.ownerSVGElement!;
+                  const rect = svg.getBoundingClientRect();
+                  const x = event.clientX - rect.left;
+                  const y = event.clientY - rect.top;
+                  setTooltip({ x, y, value: sector.value });
+                }}
+                onMouseLeave={() => setHighlightedIndex(null)}
+                style={{ opacity: highlightedIndex === index ? 0.7 : 1 }}
+              />
+              {highlightedIndex === index && (
+                <text
+                  x={textCoords.x}
+                  y={textCoords.y}
+                  fontSize="5"
+                  fill="black"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                >
+                  {sector.value}
+                </text>
+              )}
+            </g>
+          );
         })}
-</svg>)
-}
+      </svg>
+      <ul style={{ marginLeft: '20px' }}>
+        {dados.map((item, index) => (
+          <li
+            style={{
+              listStyle: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontWeight: highlightedIndex === index ? 'bold' : 'normal'
+            }}
+            key={index}
+          >
+            <Esquare color={colors[index % colors.length]} /> - {item.titulo}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default SvgTest;

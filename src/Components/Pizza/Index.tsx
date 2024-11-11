@@ -1,4 +1,4 @@
-import {Pie, Box, Charts, Esquare} from "./stylede";
+import { Pie, Box, Charts, Esquare } from "./stylede";
 
 export type IPieCharts = {
   title: string[];
@@ -17,9 +17,9 @@ const StunningPie = ({ title, values, colors }: IPieCharts) => {
   return (
     <Box>
       <Charts>
-      <Pie segments={segments}/>
+        <Pie segments={segments} />
         <ul>
-        {title.map((a, index) => (
+          {title.map((a, index) => (
             <li style={{ listStyle: 'none', display: 'flex', gap: '8px' }} key={index}>
               <Esquare color={colors[index]} /> - {a}
             </li>

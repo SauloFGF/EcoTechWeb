@@ -6,7 +6,7 @@ type Segment = {
   value: number;
 }
 
-export const Pie = styled.div<{segments: Segment[]}>`
+export const Pie = styled.div<{ segments: Segment[] }>`
   flex: 1 0 225px;
   max-width: 300px;
   aspect-ratio: 1;
@@ -16,11 +16,11 @@ export const Pie = styled.div<{segments: Segment[]}>`
       .map(({ color, percentage }, index) => {
         const start =
           index === 0
-          ? 0
-          : segments.slice(0, index).reduce((acc, seg) => acc + seg.percentage, 0);
-      return `${color} ${start}%, ${color} ${start + percentage}%`;
-    })
-    .join(', ');
+            ? 0
+            : segments.slice(0, index).reduce((acc, seg) => acc + seg.percentage, 0);
+        return `${color} ${start}%, ${color} ${start + percentage}%`;
+      })
+      .join(', ');
     return `conic-gradient(${gradient})`;
   }};
   position: relative;
@@ -46,10 +46,10 @@ export const Pie = styled.div<{segments: Segment[]}>`
   }
 `;
 
-export const Esquare = styled.div<{color: string}>`
+export const Esquare = styled.div<{ color: string }>`
   width: 15px;
   aspect-ratio: 1;
-  background-color: ${({color}) => color};
+  background-color: ${({ color }) => color};
 `;
 
 export const Box = styled.div`
