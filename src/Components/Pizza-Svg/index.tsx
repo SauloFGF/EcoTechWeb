@@ -8,11 +8,12 @@ type IDados = {
 
 interface SvgTestProps {
   dados: IDados[];
+  title: string;
 }
 
-const SvgTest: React.FC<SvgTestProps> = ({ dados }) => {
+const SvgTest: React.FC<SvgTestProps> = ({ dados, title }) => {
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
-  const [tooltip, setTooltip] = useState<{ x: number; y: number; value: number } | null>(null);
+  const [tooltip, setTooltip] = useState<{ value: number } | null>(null);
 
   const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
     const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
@@ -50,71 +51,65 @@ const SvgTest: React.FC<SvgTestProps> = ({ dados }) => {
   let cumulativePercentage = 0;
 
   return (
-    <div style={{ display: 'flex' }}>
-      <svg
-        viewBox="0 0 100 100"
-        width="512"
-        height="512"
-        onMouseLeave={() => setTooltip(null)}
-      >
-        {sectors.map((sector, index) => {
-          const [startAngle, endAngle] = [
-            cumulativePercentage * 360 / 100,
-            (cumulativePercentage + sector.percentage) * 360 / 100
-          ];
-          cumulativePercentage += sector.percentage;
+    <div style={{ display: 'flex', flexDirection: "column" }}>
+      <h1>{title}</h1>
+      <div style={{ display: 'flex', flexDirection: "row" }}>
+        <svg
+          viewBox="0 0 100 100"
+          width="300"
+          height="300"
+          onMouseLeave={() => setTooltip(null)}
+        >
+          {sectors.map((sector, index) => {
+            const [startAngle, endAngle] = [
+              cumulativePercentage * 360 / 100,
+              (cumulativePercentage + sector.percentage) * 360 / 100
+            ];
+            cumulativePercentage += sector.percentage;
 
-          const midAngle = (startAngle + endAngle) / 2;
-          const textCoords = polarToCartesian(50, 50, 30, midAngle);
-
-          return (
-            <g key={index}>
-              <path
-                d={describeArc(50, 50, 50, startAngle, endAngle)}
-                fill={sector.color}
-                onMouseEnter={() => setHighlightedIndex(index)}
-                onMouseMove={(event) => {
-                  const svg = event.currentTarget.ownerSVGElement!;
-                  const rect = svg.getBoundingClientRect();
-                  const x = event.clientX - rect.left;
-                  const y = event.clientY - rect.top;
-                  setTooltip({ x, y, value: sector.value });
-                }}
-                onMouseLeave={() => setHighlightedIndex(null)}
-                style={{ opacity: highlightedIndex === index ? 0.7 : 1 }}
-              />
-              {highlightedIndex === index && (
-                <text
-                  x={textCoords.x}
-                  y={textCoords.y}
-                  fontSize="5"
-                  fill="black"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                >
-                  {sector.value}
-                </text>
-              )}
-            </g>
-          );
-        })}
-      </svg>
-      <ul style={{ marginLeft: '20px' }}>
-        {dados.map((item, index) => (
-          <li
-            style={{
-              listStyle: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              fontWeight: highlightedIndex === index ? 'bold' : 'normal'
-            }}
-            key={index}
-          >
-            <Esquare color={colors[index % colors.length]} /> - {item.titulo}
-          </li>
-        ))}
-      </ul>
+            return (
+              <g key={index}>
+                <path
+                  d={describeArc(50, 50, 50, startAngle, endAngle)}
+                  fill={sector.color}
+                  onMouseEnter={() => setHighlightedIndex(index)}
+                  onMouseMove={() => setTooltip({ value: sector.value })}
+                  onMouseLeave={() => setHighlightedIndex(null)}
+                  style={{ opacity: highlightedIndex === index ? 0.7 : 1 }}
+                />
+              </g>
+            );
+          })}
+          {tooltip && (
+            <text
+              x="85"
+              y="5"
+              fontSize="5"
+              fill="black"
+              textAnchor="middle"
+              dominantBaseline="middle"
+            >
+              {tooltip.value}
+            </text>
+          )}
+        </svg>
+        <ul style={{ marginLeft: '20px' }}>
+          {dados.map((item, index) => (
+            <li
+              style={{
+                listStyle: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontWeight: highlightedIndex === index ? 'bold' : 'normal'
+              }}
+              key={index}
+            >
+              <Esquare color={colors[index % colors.length]} /> - {item.titulo}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
