@@ -15,14 +15,13 @@ const SvgColumn: React.FC<ColumnSvgProps> = ({ dados, titulo }) => {
   const [highlightedIndex, setHighlightedIndex] = React.useState<number | null>(null);
   const [tooltip, setTooltip] = React.useState<{ x: number; y: number; value: number } | null>(null);
 
-  const total = dados.reduce((sum, item) => sum + item.valor, 0);
-
   const colors = ["#FD4037", "#94C650", "#FCCE54", "#39BDFD", "#FF5733", "#C70039", "#900C3F"];
   const maxValor = Math.max(...dados.map(item => item.valor));
   const barWidth = 100 / dados.length;
 
   return (
     <div style={{ display: 'flex' }}>
+      <h1>{titulo}</h1>
       <svg viewBox="0 0 100 100"
         width="300"
         height="300"
