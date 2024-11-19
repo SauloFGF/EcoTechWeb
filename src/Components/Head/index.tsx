@@ -1,28 +1,21 @@
-import React from 'react'
-import styles from './index.module.css'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
 
-type IInputTypes = React.ComponentProps<'h1'> & {
-  title?: string;
+interface HeadProps {
+  title: string;
+  description?: string;
 }
 
-const Head = ({ ...props }: IInputTypes) => {
+const Head: React.FC<HeadProps> = ({ title, description }) => {
+
+  useEffect(() => {
+    document.title = `${title} | Dogs`;
+    document.querySelector("meta[name='description']")?.setAttribute('content', description || '');
+  }, [title, description]);
+
   return (
-    <header className={styles.header}>
-      <nav className={`${styles.nav} container`}>
-        <Link className={styles.logo} to="/" aria-label="Dogs - Home">
-        </Link>
-        {props.title ? (
-          <Link className={styles.login} to="/conta">
-            {props.title}
-          </Link>) : (
-          <Link className={styles.login} to="/login">
-            Login / Criar
-          </Link>)
-        }
-      </nav>
-    </header>
-  )
+    <>
+    </>
+  );
 }
 
-export default Head
+export default Head;

@@ -4,7 +4,7 @@ html {
   --color-1: #A0DBD6;
   --color-2: #A0DBAE;
   --color-3: #5C3A34;
-  --color-4: #345C58;
+  --color-4: #212121;
   --color-5: #345C3E;
   --gap-s: 0.625rem;
   --gap: 1.25rem;
@@ -15,10 +15,38 @@ html {
   --c4: #149ece;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--type-first);
+  color: #333;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
   font-family: sans-serif;
   margin: 0px;
-  color: var(--color-2);
+  color: var(--color-4);
   background: var(--backgrund);
 }
 
@@ -49,7 +77,7 @@ body {
   display: block;
   width: 1.5rem;
   height: 1.5rem;
-  background: #fb1;
+  background: var(--color-3);
   position: absolute;
   bottom: 5px;
   left: -5px;

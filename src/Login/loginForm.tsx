@@ -1,7 +1,4 @@
-import React from 'react'
-import styled from './index.module.css'
-import animation from '../Style.css'
-import Head from '../Components/Head'
+import Head from "../Components/Head"
 
 function LoginForm() {
   return (<section className='animeLeft'>
