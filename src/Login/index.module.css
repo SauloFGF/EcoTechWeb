@@ -8,7 +8,7 @@
 .login::before {
   display: block;
   content: '';
-  background: url('../assets/login.jpg') no-repeat left center;
+  background-image: linear-gradient(to bottom right, #E7E7E7, #D3D3D5);
   background-size: cover;
 }
 

@@ -4,7 +4,7 @@ import Head from "../Components/Head";
 const HomeView = () => {
 
   return (<section>
-    <Head title='Loginsss' />
+    <Head title='Home' />
     <Feed />
   </section>)
 }
