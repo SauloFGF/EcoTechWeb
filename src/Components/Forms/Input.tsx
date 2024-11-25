@@ -1,8 +1,8 @@
-import styles from './Input.module.css'
+import styles from './Form.module.css'
 
 type IInputTypes = React.ComponentProps<'input'> & {
-    label?: string;
-    span?: string;
+  label?: string;
+  span?: string;
 }
 
 const Input = ({ label, span, ...props }: IInputTypes) => {

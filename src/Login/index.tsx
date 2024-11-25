@@ -4,8 +4,8 @@ import styled from "./index.module.css";
 
 const LoginView = () => {
 
-  return (<section className={styled.login}>
-    <div className={styled.forms}>
+  return (<section className={styled.lsection}>
+    <div className={styled.lcontainer}>
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="criar" element />

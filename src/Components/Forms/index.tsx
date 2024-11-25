@@ -1,6 +1,6 @@
 import React from "react";
+import styles from './Form.module.css'
 import useFetch from "../../Hooks/useFetch";
-import { POST_API } from "../../Api";
 
 interface FormUiProps {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ export default function FormUi({ children }: FormUiProps) {
     }
 
     const form = new FormData(event.currentTarget)
-    let body: { [key: string]: any }  = {}
+    let body: { [key: string]: any } = {}
     for (const [key, value] of form.entries()) {
       body[key] = value;
     }
@@ -26,7 +26,7 @@ export default function FormUi({ children }: FormUiProps) {
     // const { response, json } = await request()
     console.log(body)
   }
-  return (<form onSubmit={handleSubmit}>
+  return (<form className={styles.formUi} onSubmit={handleSubmit}>
     {children}
   </form>)
 }

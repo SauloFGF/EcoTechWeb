@@ -1,71 +1,55 @@
-.login {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.lsection {
+  position: relative;
   min-height: 100vh;
-  gap: 2rem;
+  background: #655F77;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login::before {
-  display: block;
-  content: '';
-  background-image: linear-gradient(to bottom right, #E7E7E7, #D3D3D5);
-  background-size: cover;
+.lcontainer {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: #2B2738;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.forms {
-  max-width: 30rem;
-  padding: 1rem;
-  margin-top: 20vh;
-}
-
-@media (max-width: 40rem) {
-  .login {
-    grid-template-columns: 1fr;
-  }
-
-  .login::before {
-    display: none;
-  }
-
-  .forms {
-    max-width: 100%;
-  }
-}
-
-.form {
-  margin-bottom: 2rem;
-}
-
-.perdeu {
-  display: inline-block;
-  color: var(--color-2);
-  padding: 0.5rem 0;
-  line-height: 1;
-}
-
-.perdeu::after {
-  content: '';
-  height: 2px;
+.userSinginBx {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  background: currentColor;
-  display: block;
+  height: 100%;
+  display: flex;
 }
 
-.cadastro {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+.imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #ff0;
+  transition: 0.5s;
 }
 
-.cadastro p {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.subtitle::after {
-  content: '';
-  display: block;
-  background: var(--color-1);
-  height: 0.5rem;
-  width: 3rem;
-  border-radius: 0.2rem;
+.formBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
 }

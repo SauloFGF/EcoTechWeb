@@ -3,7 +3,6 @@ import LoginView from './Login/index.tsx'
 import './Style.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { UserStorage } from './UserContext.tsx'
-import Header from './Components/Header/inde.tsx'
 import NotFound from './NotFound/index.tsx'
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserStorage>
-          <Header />
           <main className='AppBody'>
             <Routes>
               <Route path='/' element={<HomeView />} />
