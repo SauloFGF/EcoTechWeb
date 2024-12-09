@@ -6,11 +6,7 @@ type IInputTypes = React.ComponentProps<'input'> & {
 }
 
 const Input = ({ label, span, ...props }: IInputTypes) => {
-  return <div className={styles.inputBox}>
-    {label && <label>{label}</label>}
-    <input {...props} />
-    {span && <span>{span}</span>}
-  </div>;
+  return <input {...props} className={styles.inputBox} />
 };
 
 export default Input;

@@ -29,7 +29,7 @@
   position: relative;
   width: 50%;
   height: 100%;
-  background: #ff0;
+  background: #655F77;
   transition: 0.5s;
 }
 
@@ -52,4 +52,31 @@
   align-items: center;
   padding: 40px;
   transition: 0.5s;
+}
+
+.titleForm {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555
+}
+
+.singnup {
+  position: relative;
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.singnup a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #677eff;
 }
