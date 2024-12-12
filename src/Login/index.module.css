@@ -1,4 +1,4 @@
-.lsection {
+.homeSection {
   position: relative;
   min-height: 100vh;
   background: #655F77;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.lcontainer {
+.homeSection .homeContainer {
   position: relative;
   width: 800px;
   height: 500px;
@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-.userSinginBx {
+.homeSection .homeContainer .user {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +25,8 @@
   display: flex;
 }
 
-.imgBx {
+
+.homeSection .homeContainer .user .imgBx {
   position: relative;
   width: 50%;
   height: 100%;
@@ -33,7 +34,7 @@
   transition: 0.5s;
 }
 
-.imgBx img {
+.homeSection .homeContainer .user .imgBx img {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +43,7 @@
   object-fit: cover;
 }
 
-.formBx {
+.homeSection .homeContainer .user .formBx {
   position: relative;
   width: 50%;
   height: 100%;
@@ -54,7 +55,7 @@
   transition: 0.5s;
 }
 
-.titleForm {
+.homeSection .homeContainer .user .formBx form h2 {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
@@ -65,7 +66,7 @@
   color: #555
 }
 
-.singnup {
+.homeSection .homeContainer .user .formBx form .singnup {
   position: relative;
   margin-top: 20px;
   font-size: 12px;
@@ -75,8 +76,23 @@
   font-weight: 300;
 }
 
-.singnup a {
+.homeSection .homeContainer .user .formBx form .singnup a {
   font-weight: 600;
   text-decoration: none;
   color: #677eff;
+}
+
+
+@media (max-width: 991px) {
+  .homeSection .homeContainer {
+    max-width: 400px;
+  }
+
+  .homeSection .homeContainer .imgBx {
+    display: none;
+  }
+
+  .homeSection .homeContainer .user .formBx {
+    width: 100%;
+  }
 }

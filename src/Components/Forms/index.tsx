@@ -1,13 +1,14 @@
 import React from "react";
 import styles from './Form.module.css'
 import useFetch from "../../Hooks/useFetch";
+import { POST_API } from "../../Api";
 
 interface FormUiProps {
   children: React.ReactNode;
-  // onSubmitAsync?: <T = any>(body: T, event: React.SyntheticEvent) => Promise<ResponseModel>;
+  onSubmitAsync?: (body: { [key: string]: any }, event: React.BaseSyntheticEvent) => Promise<void>;
 }
 
-export default function FormUi({ children }: FormUiProps) {
+export default function FormUi({ children, onSubmitAsync }: FormUiProps) {
   const { request } = useFetch()
 
   async function handleSubmit(event: React.BaseSyntheticEvent) {
@@ -21,11 +22,23 @@ export default function FormUi({ children }: FormUiProps) {
     for (const [key, value] of form.entries()) {
       body[key] = value;
     }
+    console.log('body', body)
 
-    // const {url, options } = POST_API()
-    // const { response, json } = await request()
-    console.log(body)
+    try {
+      if (onSubmitAsync) {
+        await onSubmitAsync(body, event);
+      } else {
+        const { url, options } = POST_API(body);
+        const { response, json } = await request(url, options);
+        console.log('json', json)
+      }
+    } catch (error) {
+      console.log('Erro ao enviar o formulario', error)
+    }
+    console.log(body, 'body')
+    console.log(form, 'body')
   }
+
   return (<form className={styles.formUi} onSubmit={handleSubmit}>
     {children}
   </form>)

@@ -1,21 +1,27 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import LoginForm from "./loginForm";
 import styled from "./index.module.css";
-import UserCreateForm from "./userCreateForm";
+import UserCreateForm from "./SingUpForm";
+import { UserContext } from "../UserContext";
+import React from "react";
 
 const LoginView = () => {
+  const { login } = React.useContext(UserContext)
 
-  return (<section className={styled.lsection}>
-    <div className={styled.lcontainer}>
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="criar" element={<UserCreateForm />} />
-        <Route path="perdeu" element />
-        <Route path="resetar" element />
-        <Route path="*" element />
-      </Routes>
-    </div>
-  </section>)
+  if (login === true) return <Navigate to="/conta" />
+
+  return (
+    <section className={styled.homeSection}>
+      <div className={styled.homeContainer}>
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="criar" element={<UserCreateForm />} />
+          <Route path="perdeu" element />
+          <Route path="resetar" element />
+          <Route path="*" element />
+        </Routes>
+      </div>
+    </section>)
 }
 
 export default LoginView;

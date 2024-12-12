@@ -1,4 +1,4 @@
-export const API_URL = 'https://localhost:7260/api/ecotech/app/expense/create'
+export const API_URL = 'https://localhost:7260/api/app/auth-client'
 
 export function TOKEN_POST(body: any) {
   return {
@@ -25,15 +25,15 @@ export function TOKEN_VALIDATE_POST(token: any) {
   }
 }
 
-export function POST_API(formData: any) {
+export function POST_API(body: { [key: string]: any }) {
   return {
-    url: API_URL,
+    url: API_URL + '/login',
     options: {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: formData
+      body: JSON.stringify(body)
     }
   }
 }
