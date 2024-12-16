@@ -1,4 +1,4 @@
-import { Pie, Box, Charts, Esquare } from "./stylede";
+import { Pie, Box, Charts, Esquare } from "./Stylede";
 
 export type IPieCharts = {
   title: string[];

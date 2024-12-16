@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Form.module.css'
-import useFetch from "../../Hooks/useFetch";
 import { POST_API } from "../../Api";
+import useFetch from "../../Hooks/UseFetch";
 
 interface FormUiProps {
   children: React.ReactNode;
@@ -22,7 +22,6 @@ export default function FormUi({ children, onSubmitAsync }: FormUiProps) {
     for (const [key, value] of form.entries()) {
       body[key] = value;
     }
-    console.log('body', body)
 
     try {
       if (onSubmitAsync) {
@@ -35,8 +34,6 @@ export default function FormUi({ children, onSubmitAsync }: FormUiProps) {
     } catch (error) {
       console.log('Erro ao enviar o formulario', error)
     }
-    console.log(body, 'body')
-    console.log(form, 'body')
   }
 
   return (<form className={styles.formUi} onSubmit={handleSubmit}>

@@ -1,8 +1,8 @@
 import styled from "./index.module.css"
 import imgLogin from "../assets/escritorio.png"
-import FormUi from "../Components/Forms"
+import FormUi from "../Components/Forms/Index"
 import Input from "../Components/Forms/Input"
-import useFetch from "../Hooks/useFetch"
+import useFetch from "../Hooks/UseFetch"
 import { POST_API } from "../Api"
 import { Navigate } from "react-router-dom"
 
@@ -29,8 +29,8 @@ function LoginForm() {
       <div className={styled.formBx}>
         <FormUi onSubmitAsync={onSubmitAsync}>
           <h2>SING IN</h2>
-          <Input type="text" placeholder="Username" />
-          <Input type="password" placeholder="Password" />
+          <Input name="userName" type="text" placeholder="Username" />
+          <Input name="password" type="password" placeholder="Password" />
           <Input type="submit" value="Login" />
           <p className={styled.singnup}>Don't have an account ? <a href="/login/criar">Sing Up.</a></p>
         </FormUi>

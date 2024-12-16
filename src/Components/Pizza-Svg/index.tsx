@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Esquare } from '../Pizza/stylede';
+import { Esquare } from '../Pizza/Stylede';
 
 type IDados = {
   titulo: string;

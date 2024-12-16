@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import LoginForm from "./loginForm";
 import styled from "./index.module.css";
 import UserCreateForm from "./SingUpForm";
 import { UserContext } from "../UserContext";
 import React from "react";
+import LoginForm from "./loginForm";
 
 const LoginView = () => {
   const { login } = React.useContext(UserContext)
