@@ -1,13 +1,15 @@
-import React from "react"
-import { UserContext } from "../UserContext"
-
-
+import styled from "./index.module.css";
+import UserHeader from "./UserHeader";
 
 const User = () => {
-  const { data } = React.useContext(UserContext);
+  // const { data } = React.useContext(UserContext);
 
-  return (<section>
+  return (<section className={styled.userBody}>
+    <div className={styled.divContainer}>
+      <UserHeader>
 
+      </UserHeader>
+    </div>
   </section>
   )
 }

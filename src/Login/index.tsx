@@ -3,7 +3,7 @@ import styled from "./index.module.css";
 import UserCreateForm from "./SingUpForm";
 import { UserContext } from "../UserContext";
 import React from "react";
-import LoginForm from "./loginForm";
+import LoginForm from "./LoginForm";
 
 const LoginView = () => {
   const { login } = React.useContext(UserContext)

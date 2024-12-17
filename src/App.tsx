@@ -2,8 +2,9 @@ import './Style.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { UserStorage } from './UserContext.tsx'
 import NotFound from './NotFound/index.tsx'
-import HomeView from './Home/index.tsx'
-import LoginView from './Login/index.tsx'
+import User from './User/User.tsx'
+import HomeView from './Home/Index.tsx'
+import LoginView from './Login/Index.tsx'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
             <Routes>
               <Route path='/' element={<HomeView />} />
               <Route path='/login/*' element={<LoginView />} />
-              <Route path='/conta/*' element={ } />
+              <Route path='/conta/*' element={<User />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

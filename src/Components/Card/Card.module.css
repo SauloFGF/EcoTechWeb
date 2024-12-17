@@ -1,0 +1,10 @@
+.card {
+  position: relative;
+  width: 340px;
+  height: 175px;
+  background: #fcfcfc;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}

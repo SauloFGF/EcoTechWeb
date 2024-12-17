@@ -1,5 +1,6 @@
-import Feed from "../Components/Feed";
-import Head from "../Components/Head";
+import Feed from "../Components/Feed/Index";
+import Head from "../Components/Head/Index";
+
 
 const HomeView = () => {
 
