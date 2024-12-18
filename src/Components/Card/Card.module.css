@@ -1,10 +1,50 @@
 .card {
+  display: flex;
+  justify-content: space-between;
   position: relative;
   width: 340px;
   height: 175px;
   background: #fcfcfc;
   border-radius: 15px;
-  padding: 40px;
+  padding: 20px;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.05);
   z-index: 1000;
+}
+
+.icon {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.title {
+  color: #999;
+  text-align: center;
+  outline: none;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.box span {
+  font-size: 1.1em;
+}
+
+.box h1 {
+  font-size: 1.8em;
+}
+
+.orcamento {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.orcamento p {
+  background-color: #999;
 }
