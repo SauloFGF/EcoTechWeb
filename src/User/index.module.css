@@ -1,6 +1,6 @@
 .userBody {
   min-height: 100vh;
-  background: #fff;
+  background: #f9f9f9;
 }
 
 .divContainer {
@@ -14,6 +14,16 @@
   height: 300px;
   background: linear-gradient(45deg, #231fbf, #69175f);
   padding: 50px;
+}
+
+.userHeader ul {
+  display: flex;
+  gap: 36px;
+}
+
+.userHeader a {
+  color: #fff;
+  font-size: 1.5em;
 }
 
 .resume {

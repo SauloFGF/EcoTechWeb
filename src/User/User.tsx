@@ -5,11 +5,7 @@ const User = () => {
   // const { data } = React.useContext(UserContext);
 
   return (<section className={styled.userBody}>
-    <div className={styled.divContainer}>
-      <UserHeader>
-
-      </UserHeader>
-    </div>
+    <UserHeader />
   </section>
   )
 }
