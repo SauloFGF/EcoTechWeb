@@ -13,8 +13,9 @@ const Head: React.FC<HeadProps> = ({ title, description }) => {
   }, [title, description]);
 
   return (
-    <>
-    </>
+    <h1>
+      {title}
+    </h1>
   );
 }
 
